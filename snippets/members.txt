@@ -1,0 +1,17 @@
+
+CREATE TABLE member   (
+loginName VARCHAR (20) NOT NULL,
+createdate  DATE  NOT NULL,
+password VARCHAR (255) NOT NULL,
+lastname  VARCHAR(50),
+firstnmame  VARCHAR(40),
+street VARCHAR(50),
+city  VARCHAR(50),
+state CHAR(2),
+zip CHAR(10),
+email CHAR(50),
+phone  CHAR(15),
+fax CHAR(15),
+state CHAR(2),
+PRIMARY KEY(loginName)
+);

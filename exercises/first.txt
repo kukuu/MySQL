@@ -1,0 +1,75 @@
+
+Class Exercises
+
+1. Create A Database.
+2. Create three tables in the database with 10 records each.
+3. Add Rows and Columns to your tables.
+4. Insert data into your tables. Each table must have a record of either two common first names or surnames 
+5. Use SQL commands to create a fourth table. 
+6. Populate the table with SQL command from the query window in phpMyAdmin. Save your first command for inspection.
+7. Write an SQL command to insert data into one of your tables for when you are unsure what order the fields in the database are. Save the query for inspection.
+8.  What keywords in addition to UPDATE are used via SQL query window to update a record.  Update a number of records from two of the tables in your database. Use the edit tool to complete this task for two of your working tables, and then do this through the SQL query window from phpMyAdmin. Save your query statement for inspection.
+9. Using the search tab from phpMyAdmin, use the SELECT statement to search for specific group of data using the WHERE clause and wild card operators. Save the query and the result of the query for inspection.
+10. Which clause is used in conjunction with the DELETE statement to remove entries? First delete an entry using the delete tool and secondly via an SQL script. Save your command for inspection.
+11. With the help of the search utility from phpMyAdmin, search for common names or surnames from any of your tables.  Remove from the database any one of your table using the DROP command. Note you cannot recover the table (See question 4 above).
+12. Use the PHP code below as basis for writing your PHP application to interrogate one of your tables. Write 4 different queries to retrieve and filter results from your table. Save the results of each query for inspection.
+
+
+<!-- Program Name:  sample.php
+     Description: PHP program that sends an SQL query to the
+                  MySQL server and displays the results.
+				  Author ; Alexander Adu-Sarkodie
+-->
+<html>
+<head>
+<title>SQL Query Sender</title>
+	<style>
+		.red {color:#ff0000;}
+		.gold {color:#ff9933; }
+		.torquoise {color:#ff00ff; }
+	</style>
+</head>
+<body>
+<?php
+echo "<p><span class=gold><div align=center><strong>Hello Pet World</strong></div></span></p>";
+ $user="root";
+ $host="localhost";
+$password="c00k1e1";
+ $database = 'mysqlphp';
+ $query = $_GET['query'];
+ $query = stripSlashes($query) ; 
+echo "<h3>$query</h3>";
+if (!mysql_connect($host,$user,$password)) {echo "<p>Unable to connect to database</p>";}
+if (!mysql_select_db($database)) {echo "<p><strong>Unable to select database</span></strong>";}
+$r = mysql_query($query);
+if (!$r) {echo "<p align=center><strong>Unable to query to database</strong></p>";}
+else {	
+	while ($row = mysql_fetch_array($r)) {
+		echo "<p align=center>";
+		echo $row['Pet_ID']." || ";
+		echo $row['Description']." || ";
+		echo $row['Price']." || ";
+		echo '<img src="/lectures/images/'.$row["pix"].'.jpg">';
+		echo "</p>";
+	}
+}  
+?>
+
+	
+
+
+<form action=<?=$_SERVER['PHP_SELF']?> method="get">
+	 	<table  align="center">
+	  		<tr>
+	   			<td align="right" valign="top"><b><span class=torquoise>Type in SQL query</span></b></td>
+	   			<td><textarea name="query" cols="60" rows="10" value=''><?php echo $query ?></textarea>
+	   			</td>
+	  		</tr>
+	  		<tr>
+	  			 <td colspan="2" align="center"><input type="submit" value="Submit Query"></td>
+	  		</tr>
+	 	</table>
+	</form>
+</body>
+</html>
+

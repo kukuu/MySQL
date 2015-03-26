@@ -1,0 +1,16 @@
+The 15 Commandments!
+1.	Proper use of indexes improve performance
+2.	Do not perform calculations on an index (eg: if you have an index for a column called salary, do not perform calculation such as salary * 2 > 10000)
+3.	“LOAD DATA INFILE” is the fastest way to insert data into MySQL database (20 times faster than normal inserts)
+4.	Use INSERT LOW PRIORITY or INSERT DELAYED if you want to delay inserts from happening until the table is free
+5.	Use TRUNCATE TABLE rather than DELETE FROM if you are deleting an entire table (DELETE FROM delete row by row, whereas TRUNCATE TABLE deletes all at once)
+6.	Always use EXPLAIN to examine if your select query is efficient
+7.	Use OPTIMIZE TABLE to reclaim unused space (Note: Table will be locked during optimization, so only do it during low traffic time), and ANALYZE to trigger key distribution of queries.
+8.	Better to have 10 quick queries than 1 slow one
+9.	Use caching to reduce database load
+10.	Normalize tables to ensure data consistency
+11.	Use persistent connections
+12.	Don’t query columns you don’t need, avoid using SELECT * FROM 
+13.	MySQL can search on prefix of indexes (ie: If you have index INDEX (a,b), you don’t need an index on (a)). Leftmost prefixing
+14.	Don’t use HAVING when you can use WHERE
+15.	Use numeric values rather than alphabetical values when performing a join.
