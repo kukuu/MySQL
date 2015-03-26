@@ -12,5 +12,5 @@ The 15 Commandments!
 11.	Use persistent connections
 12.	Don’t query columns you don’t need. Avoid using SELECT * FROM 
 13.	MySQL can search on prefix of indexes (ie: If you have index INDEX (a,b), you don’t need an index on (a)). Leftmost prefixing
-14.	Don’t use HAVING when you can use WHERE
+14.	Don’t use HAVING when you can use WHERE.
 15.	Use numeric values rather than alphabetical values when performing a join.
