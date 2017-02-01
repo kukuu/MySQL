@@ -1,0 +1,3 @@
+create table people(name varchar(30), age interger, height float, date datedetime)
+INSERT INTO people VALUES ( "Jim", 45, 1.75, "2006-02-02 15:35:00" ), ( "Peggy", 6, 1.12, "2006-03-02 16:21:00" ) 
+INSERT INTO people (name, date, height, age) VALUES ( "Jane", "2007-01-16 15:15:00", 1.57, 35 ), ( "Jules", "2007-11-18 11:15:00", 1.47, 18 ), ( "Phoebe", "2005-10-29 19:15:00", 1.67, 42 )
